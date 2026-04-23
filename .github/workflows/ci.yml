@@ -1,0 +1,33 @@
+name: CI - Vérification de l'application
+
+# Déclenché sur chaque Pull Request vers main
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  verify:
+    name: Vérifier que l'app démarre sans erreur
+    runs-on: ubuntu-latest
+
+    # On utilise l'environnement "staging" défini sur GitHub
+    environment: staging
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Vérifier que l'app se charge sans erreur
+        run: npm run check
+        env:
+          APP_ENV: ${{ vars.APP_ENV }}
+          SECRET_MESSAGE: ${{ secrets.SECRET_MESSAGE }}
