@@ -18,14 +18,14 @@ const SECRET_MESSAGE = process.env.SECRET_MESSAGE || '(aucun secret défini)';
 // La fonction passée en paramètre est appelée à chaque fois qu'un client envoie une requête :
 //   - "req" (request)  : contient les informations de la requête entrante (URL, méthode, headers…)
 //   - "res" (response) : permet de construire et d'envoyer la réponse au client
-const server = http.createServer((req, res) => {
+const server = http.createServer(req, res) => {
   // On envoie un en-tête HTTP avec le code 200 (= succès)
   // et on indique que la réponse est du texte brut (pas du HTML ni du JSON).
   res.writeHead(200, { 'Content-Type': 'text/plain' });
 
   // On envoie le corps de la réponse et on termine la connexion.
   // Les variables APP_ENV et SECRET_MESSAGE sont interpolées dans la chaîne (template literal).
-  res.end(`Bonjour ! Environnement : ${APP_ENV}\nMessage secret : ${SECRET_MESSAGE}\n`);
+  res.end(`Bonjour ! Environnement : ${APP_ENV}\nTests passés avec succès !\n`);
 });
 
 // On démarre le serveur sur le port choisi.
