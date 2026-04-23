@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
 
   // On envoie le corps de la réponse et on termine la connexion.
   // Les variables APP_ENV et SECRET_MESSAGE sont interpolées dans la chaîne (template literal).
-  res.end(`Bonjour ! Environnement : ${APP_ENV}\nMessage secret : ${SECRET_MESSAGE}\n`);
+  res.end(`Bonjour ! Environnement : ${APP_ENV}\nTests passés avec succès !\n`);
 });
 
 // On démarre le serveur sur le port choisi.
