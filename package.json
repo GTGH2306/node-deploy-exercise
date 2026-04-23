@@ -1,0 +1,13 @@
+{
+  "name": "deploy-exercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "check": "node -e \"require('./app.js'); console.log('App chargée sans erreur'); process.exit(0);\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
